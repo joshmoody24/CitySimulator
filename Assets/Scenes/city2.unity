@@ -405,3 +405,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1975778519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1975778521}
+  - component: {fileID: 1975778520}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1975778520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975778519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88e30b3d090bfb438537567799498d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minQuadrantArea: 100
+  height: 500
+  width: 500
+  options:
+    minQuadrantArea: 100
+    maxAspectRatio: 4
+  quadrantPrefab: {fileID: 8545878836761313770, guid: bebf63fa2beb8c5418d1c8166df91387,
+    type: 3}
+  cityQuadrants: []
+  debugMaterials:
+  - {fileID: 2100000, guid: 000aefdf9d4a4b449b8ae53421ea2141, type: 2}
+  - {fileID: 2100000, guid: 3da7e6a8f30267841a8dadaf517e2f73, type: 2}
+  - {fileID: 2100000, guid: a6e42b8039596ad439f7f0607d3e83ce, type: 2}
+  - {fileID: 2100000, guid: 69311398e600fb04a9c2a53ac68e859b, type: 2}
+  - {fileID: 2100000, guid: 9c319fab5022e7d439b8cf2bcf15980b, type: 2}
+  - {fileID: 2100000, guid: 5493b1dc7b587e94ca785a9a02dd8020, type: 2}
+  - {fileID: 2100000, guid: 5d3eb119856dac641a4722e7766cc301, type: 2}
+--- !u!4 &1975778521
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975778519}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 300.37286, y: -91.82272, z: 329.96228}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
