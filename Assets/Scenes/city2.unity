@@ -435,14 +435,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minQuadrantArea: 100
-  height: 500
-  width: 500
+  height: 5000
+  width: 5000
   options:
-    minQuadrantArea: 100
+    seed: 6
+    cityWidth: 1000
+    cityHeight: 1000
+    biomeScale: 1
+    minUrbanArea: 500
+    minResidentialArea: 1920
+    minRuralArea: 20000
     maxAspectRatio: 4
+    urbanLowerThreshold: 0.843
+    ruralUpperThreshold: 0.25
+    mainStFalloff: 20
+    mainStImpact: 0.7
+    centerStFalloff: 70
+    centerStImpact: 0.25
   quadrantPrefab: {fileID: 8545878836761313770, guid: bebf63fa2beb8c5418d1c8166df91387,
     type: 3}
+  cityParent: {fileID: 2011756005}
   cityQuadrants: []
+  urbanMaterial: {fileID: 2100000, guid: 000aefdf9d4a4b449b8ae53421ea2141, type: 2}
+  residentialMaterial: {fileID: 2100000, guid: 5d3eb119856dac641a4722e7766cc301, type: 2}
+  ruralMaterial: {fileID: 2100000, guid: 3da7e6a8f30267841a8dadaf517e2f73, type: 2}
   debugMaterials:
   - {fileID: 2100000, guid: 000aefdf9d4a4b449b8ae53421ea2141, type: 2}
   - {fileID: 2100000, guid: 3da7e6a8f30267841a8dadaf517e2f73, type: 2}
@@ -465,4 +481,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2011756004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2011756005}
+  m_Layer: 0
+  m_Name: MapParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2011756005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011756004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 330.81305, y: -173.90044, z: 246.39087}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

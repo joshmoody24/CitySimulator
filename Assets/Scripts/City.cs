@@ -18,13 +18,13 @@ public class City
         List<Quadrant> quadrants = new List<Quadrant>();
 
         // northeast
-        quadrants.AddRange(Quadrant.FillQuadrant(center, topRight, options));
+        quadrants.AddRange(Quadrant.FillQuadrant(center, topRight, center, options));
         // northwest
-        quadrants.AddRange(Quadrant.FillQuadrant(middleLeft, topCenter, options));
+        quadrants.AddRange(Quadrant.FillQuadrant(middleLeft, topCenter, center, options));
         // southeast
-        quadrants.AddRange(Quadrant.FillQuadrant(bottomCenter, middleRight, options));
+        quadrants.AddRange(Quadrant.FillQuadrant(bottomCenter, middleRight, center, options));
         // southwest
-        quadrants.AddRange(Quadrant.FillQuadrant(bottomLeft, center, options));
+        quadrants.AddRange(Quadrant.FillQuadrant(bottomLeft, center, center, options));
 
         return quadrants;
     }
@@ -33,6 +33,25 @@ public class City
 [System.Serializable]
 public class CityOptions
 {
-    public float minQuadrantArea = 1000f;
+    public int seed = 0;
+    public float cityRadius= 1000f;
+    public float roadWidth = 6f;
+    public float biomeScale = 1f;
+    public float minUrbanArea = 150f;
+    public float minResidentialArea = 200f;
+    public float minRuralArea = 2000f;
     public float maxAspectRatio = 4/1f;
+    [Range(1, 50)]
+    public int biomeSamples = 5;
+    [Range(0f,1f)]
+    public float urbanLowerThreshold = .8f;
+    [Range(0f, 1f)]
+    public float ruralUpperThreshold = .2f;
+    public float mainStFalloff = 20f;
+    [Range(0f, 1f)]
+    public float mainStImpact = 0.7f;
+    public float centerStFalloff = 100f;
+    [Range(0f, 1f)]
+    public float centerStImpact = 0.4f;
+    // residential is anything in between minUrban and maxRural
 }
