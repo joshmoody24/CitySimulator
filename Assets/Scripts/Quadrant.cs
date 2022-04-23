@@ -36,7 +36,8 @@ public class Quadrant
     }
 
     public static float SampleBiomeAtPoint(Vector2 point, Vector2 cityCenter, CityOptions options){
-        float baseSample = Mathf.PerlinNoise(point.x*options.biomeScale+options.seed, point.y*options.biomeScale+options.seed);
+        float scale = 1f/options.biomeScale;
+        float baseSample = Mathf.PerlinNoise(point.x*scale+options.seed, point.y*scale+options.seed);
 
         // make it more likely for main street to have urban
         float distanceFromMainSt = Mathf.Abs(cityCenter.x - point.x);
