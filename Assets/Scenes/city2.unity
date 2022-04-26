@@ -513,6 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1975778521}
   - component: {fileID: 1975778520}
+  - component: {fileID: 1975778522}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -544,28 +545,15 @@ MonoBehaviour:
     minResidentialArea: 2000
     minRuralArea: 100000
     maxAspectRatio: 3
-    biomeSamples: 13
+    biomeSamples: 9
     urbanLowerThreshold: 0.725
     ruralUpperThreshold: 0.309
     mainStFalloff: 31.62
     mainStImpact: 0.562
     centerStFalloff: 130
     centerStImpact: 0.198
-  quadrantPrefab: {fileID: 8545878836761313770, guid: bebf63fa2beb8c5418d1c8166df91387,
-    type: 3}
-  cityParent: {fileID: 2011756005}
   cityQuadrants: []
-  urbanMaterial: {fileID: 2100000, guid: 000aefdf9d4a4b449b8ae53421ea2141, type: 2}
-  residentialMaterial: {fileID: 2100000, guid: 5d3eb119856dac641a4722e7766cc301, type: 2}
-  ruralMaterial: {fileID: 2100000, guid: 3da7e6a8f30267841a8dadaf517e2f73, type: 2}
-  debugMaterials:
-  - {fileID: 2100000, guid: 000aefdf9d4a4b449b8ae53421ea2141, type: 2}
-  - {fileID: 2100000, guid: 3da7e6a8f30267841a8dadaf517e2f73, type: 2}
-  - {fileID: 2100000, guid: a6e42b8039596ad439f7f0607d3e83ce, type: 2}
-  - {fileID: 2100000, guid: 69311398e600fb04a9c2a53ac68e859b, type: 2}
-  - {fileID: 2100000, guid: 9c319fab5022e7d439b8cf2bcf15980b, type: 2}
-  - {fileID: 2100000, guid: 5493b1dc7b587e94ca785a9a02dd8020, type: 2}
-  - {fileID: 2100000, guid: 5d3eb119856dac641a4722e7766cc301, type: 2}
+  updatesPerSecond: 5
 --- !u!4 &1975778521
 Transform:
   m_ObjectHideFlags: 0
@@ -581,6 +569,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1975778522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975778519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f31fc39a6e0e64290673c4786429b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  urbanMaterial: {fileID: 2100000, guid: 000aefdf9d4a4b449b8ae53421ea2141, type: 2}
+  residentialMaterial: {fileID: 2100000, guid: 69311398e600fb04a9c2a53ac68e859b, type: 2}
+  ruralMaterial: {fileID: 2100000, guid: 3da7e6a8f30267841a8dadaf517e2f73, type: 2}
+  cityParent: {fileID: 2011756005}
+  quadrantPrefab: {fileID: 8545878836761313770, guid: bebf63fa2beb8c5418d1c8166df91387,
+    type: 3}
 --- !u!1 &2011756004
 GameObject:
   m_ObjectHideFlags: 0
