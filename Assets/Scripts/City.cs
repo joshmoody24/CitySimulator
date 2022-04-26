@@ -36,6 +36,8 @@ public class CityOptions
     public int seed = 0;
     public float cityRadius= 1000f;
     public float roadWidth = 6f;
+    public float yardArea = 1000f;
+    public float houseArea = 200f;
     public float biomeScale = 1f;
     public float minUrbanArea = 150f;
     public float minResidentialArea = 200f;

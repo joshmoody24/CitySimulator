@@ -86,7 +86,7 @@ public class Quadrant
                 break;
             case QuadrantType.Residential:
                 if(area <= options.minResidentialArea)
-                    return new List<Quadrant>(){new Quadrant(start,end)};
+                    return ResidentialBlocks(new Quadrant(start,end), options);
                 break;
             case QuadrantType.Rural:
                 if(area <= options.minRuralArea)
@@ -132,6 +132,59 @@ public class Quadrant
         subQuads.AddRange(subDiv1);
         subQuads.AddRange(subDiv2);
         return subQuads;
+    }
+
+    public static List<Quadrant> ResidentialBlocks(Quadrant residentialQuad, CityOptions options){
+        float yardWith = Mathf.Sqrt(options.yardArea);
+        float width = residentialQuad.GetWidth();
+        float height = residentialQuad.GetHeight();
+        List<Quadrant> subBlocks = new List<Quadrant>();
+        if(width > height){
+            // create blocks that allow square yards approximately {yardWidth} wide
+            int numBlocks = GetOptimalBlockCount(residentialQuad, options);
+            float blockWidth = width/numBlocks;
+            for(int i = 0; i < numBlocks; i++){
+                Vector2 s = new Vector2(residentialQuad.start.x + (blockWidth*i), residentialQuad.start.y);
+                Vector2 e = new Vector2(residentialQuad.start.x + (blockWidth*i) + blockWidth, residentialQuad.end.y);
+                subBlocks.Add(new Quadrant(s,e));
+            }
+        }
+        else {
+            int numBlocks = GetOptimalBlockCount(residentialQuad, options);
+            float blockHeight = height/numBlocks;
+            for(int i = 0; i < numBlocks; i++){
+                Vector2 s = new Vector2(residentialQuad.start.x, residentialQuad.start.y + (blockHeight*i));
+                Vector2 e = new Vector2(residentialQuad.end.x, residentialQuad.start.y + (blockHeight*i) + blockHeight);
+                subBlocks.Add(new Quadrant(s,e));
+            }
+        }
+        return subBlocks;
+    }
+
+    // attempt to get the number of blocks required to hold 2 yards
+    public static int GetOptimalBlockCount(Quadrant q, CityOptions options){
+        float err = float.PositiveInfinity;
+        float? prevError = float.PositiveInfinity;
+        float quadLong = q.GetHeight() > q.GetWidth() ? q.GetHeight() : q.GetWidth();
+        float quadShort = q.GetHeight() < q.GetWidth() ? q.GetHeight() : q.GetWidth();
+        int maxIterations = 20;
+        for(int i = 1; i <= maxIterations; i++){
+            float blockLength = (quadLong / i) - (options.roadWidth*(i-1))/(i*2);
+            float avgYardWidth = blockLength/2f;
+            prevError = err;
+            err = Mathf.Abs(Mathf.Sqrt(options.yardArea) - avgYardWidth);
+            if(err > prevError){
+                return i-1;
+            }
+        }
+        return -1;
+    }
+
+    public float GetWidth(){
+        return Mathf.Abs(end.x - start.x);
+    }
+    public float GetHeight(){
+        return Mathf.Abs(end.y - start.y);
     }
 }
 

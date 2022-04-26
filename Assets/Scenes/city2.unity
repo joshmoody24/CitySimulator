@@ -534,26 +534,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minQuadrantArea: 62.8
-  height: 2000
-  width: 2000
+  height: 2200
+  width: 2200
   options:
     seed: 115
     cityRadius: 1000
     roadWidth: 6
+    yardArea: 1000
+    houseArea: 200
     biomeScale: 500
-    minUrbanArea: 1000
-    minResidentialArea: 2000
+    minUrbanArea: 1500
+    minResidentialArea: 40000
     minRuralArea: 100000
     maxAspectRatio: 3
-    biomeSamples: 9
-    urbanLowerThreshold: 0.725
+    biomeSamples: 6
+    urbanLowerThreshold: 0.715
     ruralUpperThreshold: 0.309
-    mainStFalloff: 31.62
-    mainStImpact: 0.562
+    mainStFalloff: 70
+    mainStImpact: 0.922
     centerStFalloff: 130
-    centerStImpact: 0.198
+    centerStImpact: 0.268
   cityQuadrants: []
-  updatesPerSecond: 5
+  updatesPerSecond: 0.001
 --- !u!4 &1975778521
 Transform:
   m_ObjectHideFlags: 0
@@ -584,8 +586,11 @@ MonoBehaviour:
   urbanMaterial: {fileID: 2100000, guid: 000aefdf9d4a4b449b8ae53421ea2141, type: 2}
   residentialMaterial: {fileID: 2100000, guid: 69311398e600fb04a9c2a53ac68e859b, type: 2}
   ruralMaterial: {fileID: 2100000, guid: 3da7e6a8f30267841a8dadaf517e2f73, type: 2}
+  roadMaterial: {fileID: 2100000, guid: e4d7ae875d125a049ba2a1b73bc46d4c, type: 2}
   cityParent: {fileID: 2011756005}
   quadrantPrefab: {fileID: 8545878836761313770, guid: bebf63fa2beb8c5418d1c8166df91387,
+    type: 3}
+  housePrefab: {fileID: 758811658002759142, guid: 75cf1c7ac65bec84d84afb174b9f642a,
     type: 3}
 --- !u!1 &2011756004
 GameObject:

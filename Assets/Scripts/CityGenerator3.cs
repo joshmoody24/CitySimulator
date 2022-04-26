@@ -36,7 +36,9 @@ public class CityGenerator3 : MonoBehaviour
             Vector2 start = -end;
             cityCenter = (start + end) / 2f;
             cityQuadrants = City.GenerateCity(start, end, options);
-            GetComponent<CityMeshGenerator>().GenerateCityMesh(cityQuadrants, cityCenter, options);
+            CityMeshGenerator meshGen = GetComponent<CityMeshGenerator>();
+            meshGen.GenerateCityMesh(cityQuadrants, cityCenter, options);
+            meshGen.SpawnHouses(cityQuadrants, cityCenter, options);
             yield return new WaitForSeconds(1f/updatesPerSecond);
         }
     }
